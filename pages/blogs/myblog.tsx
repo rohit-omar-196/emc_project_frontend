@@ -1,16 +1,29 @@
 import Layout from "@/components/Layout";
+import Comment from "@/components/common/comment";
 import React from "react";
+import Subscribe from "@/components/common/subscribe";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ModeCommentIcon from "@mui/icons-material/ModeComment";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const MyBlog = () => {
   return (
     <Layout>
-      <div id="blog-content-container" className="flex border-2 justify-evenly">
-        <div id="blog-page-left" className="w-[800px] pt-8 pb-8 border-[0.5px]">
-          <div id="blog-title" className="text-3xl">
+      <div id="blog-content-container" className="flex justify-evenly py-2">
+        <div
+          id="blog-page-left"
+          className="w-[850px] p-2 pt-8 pb-8 border-[0.5px] border-slate-600 rounded-lg shadow-lg"
+        >
+          <div id="blog-title" className="text-3xl text-white">
             My First Year Days of Fun with Friends and much more.
           </div>
-          <div id="blog-publish-date-time" className="mt-2 text-slate-500">03/02/2023 22:37</div>
-          <div id="blog-text-content" className="text-lg mt-8 text-justify">
+          <div id="blog-publish-date-time" className="mt-2 text-slate-300">
+            03/02/2023 22:37
+          </div>
+          <div
+            id="blog-text-content"
+            className="text-lg mt-8 text-justify text-slate-300"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
             exercitationem fuga maiores similique, optio corrupti consequatur
             placeat necessitatibus velit incidunt laboriosam nulla. Atque
@@ -52,10 +65,30 @@ const MyBlog = () => {
             totam ex vero quia earum ea facilis asperiores neque, cupiditate
             eius qui placeat repellat facere, dicta iure voluptas porro
             obcaecati. Dolorem nesciunt voluptatem cupiditate, nulla,
-            repellendus non error minima.
+          </div>
+          <Subscribe />
+          <Comment comment={""}></Comment>
+        </div>
+        <div
+          id="blog-page-right"
+          className="p-2 h-[200px] w-[300px] sticky top-0 border-[1px] border-slate-600 shadow-md rounded-md bg-[url('/background_Image/author-note-bg.png')] bg-center flex flex-col items-center"
+        >
+          <div>
+            <div className="h-[100px] w-[100px] border-[2px] border-[#ff006e] rounded-full bg-[url('/background_Image/rupesh_author.JPG')] bg-contain mt-2"></div>
+          </div>
+          <div className="mt-6 h-full w-full border-[1px] border-slate-600 rounded-md text-sky-400 p-2 flex justify-evenly">
+            <div>
+              <FavoriteIcon className="mr-2 hover:cursor-pointer" />
+              73
+              <FavoriteBorderIcon className="mr-2 hover:cursor-pointer"/>
+            </div>
+            <div className="border-[1px] border-sky-600"></div>
+            <div>
+              <ModeCommentIcon className="mr-2" />
+              108
+            </div>
           </div>
         </div>
-        <div id="blog-page-right" className="border-2 h-96 min-w-[300px]">Next Read</div>
       </div>
     </Layout>
   );
