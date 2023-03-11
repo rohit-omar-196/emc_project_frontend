@@ -18,7 +18,7 @@ const Contact = () => {
             id="author-contact-content"
             className="text-sky-400 p-2 min-w-[1000px] pb-4"
           >
-            { `Hey Guys,
+            Hey Guys,
             <br />
             <br />
             I am glad that you came upto here to know my means of contact. And
@@ -79,7 +79,7 @@ const Contact = () => {
             >
               nandanjirupesh
             </a>
-            <br />`}
+            <br />
           </div>
         </div>
       </div>
