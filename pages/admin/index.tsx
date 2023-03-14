@@ -1,16 +1,99 @@
 import Admin_Layout from "@/components/Admin_Layout";
 import Button from "@/components/common/buttons";
-import Link from "next/link";
-import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import { useState } from "react";
+const TextEditor = dynamic(() => import("../../components/common/TextEditor"), {
+  ssr: false,
+});
 
 interface state {
   button_id: String;
 }
 
+const value = `Hey Guys,
+<br />
+<br />
+I am glad that you came upto here to know my means of contact. And
+I am really very excited to connect to you as you are. So one can
+connect with me at any social media platform. Weather it is
+Instagram, Facebook, Linkedin, Twitter, YouTube, Quora everywhere.
+Or You can post your queries at my email rnyadav@gmail.com. I am
+attaching all my handles and links bellow.
+<br />
+<br />
+I am waiting for you message.
+<br />
+<br />
+<i className="text-[#ff006e]">Instagram-</i> @
+<a
+  href="https://instagram.com/nandanjirupesh?igshid=NmE0MzVhZDY"
+  target="_blank"
+>
+  nandanjirupesh
+</a>
+<br />
+<i className="text-[#ff006e]">Facebook-</i> @
+<a
+  href="https://instagram.com/nandanjirupesh?igshid=NmE0MzVhZDY"
+  target="_blank"
+>
+  nandanjirupesh
+</a>
+<br />
+<i className="text-[#ff006e]">Twitter-</i> @
+<a
+  href="https://instagram.com/nandanjirupesh?igshid=NmE0MzVhZDY"
+  target="_blank"
+>
+  nandanjirupesh
+</a>
+<br />
+<i className="text-[#ff006e]">Linkedin-</i> @
+<a
+  href="https://instagram.com/nandanjirupesh?igshid=NmE0MzVhZDY"
+  target="_blank"
+>
+  nandanjirupesh
+</a>
+<br />
+<i className="text-[#ff006e]">YouTube-</i> @
+<a
+  href="https://instagram.com/nandanjirupesh?igshid=NmE0MzVhZDY"
+  target="_blank"
+>
+  nandanjirupesh
+</a>
+<br />
+<i className="text-[#ff006e]">Quora-</i> @
+<a
+  href="https://instagram.com/nandanjirupesh?igshid=NmE0MzVhZDY"
+  target="_blank"
+>
+  nandanjirupesh
+</a>
+<br />`;
+
+const value2 = `Hey Guys,
+<br />
+<br />
+I am glad that you came upto here to know my means of contact. And
+I am really very excited to connect to you as you are. So one can
+connect with me at any social media platform. Weather it is
+Instagram, Facebook, Linkedin, Twitter, YouTube, Quora everywhere.
+Or You can post your queries at my email rnyadav@gmail.com. I am
+attaching all my handles and links bellow.
+<br />
+<br />
+I am waiting for you message.
+<br />
+<br />`;
+
 const Admin = () => {
   const [editContact, setEditContact] = useState(false);
   const [editAuthorNote, setEditAuthorNote] = useState(false);
   const [editAboutAuthor, setAboutAuthor] = useState(true);
+
+  const [content, setContent] = useState("");
 
   const changeButtonState = (button_id: any) => {
     if (button_id === "CONTACT_ME") {
@@ -61,13 +144,7 @@ const Admin = () => {
         </div>
         {editAboutAuthor ? (
           <form className="border-[1px] border-slate-600 rounded-md p-2 mt-4">
-            <textarea
-              id=""
-              className="w-full rounded-lg p-4 outline-none"
-              contentEditable="true"
-            >
-              About Author
-            </textarea>
+            <TextEditor data={value} />
             <div className="mt-2">
               <Button id="SAVE_BUTTON" className="" title="SAVE" />
               <Button id="CANCEL_BUTTON" className="" title="CANCEL" />
@@ -75,13 +152,7 @@ const Admin = () => {
           </form>
         ) : editContact ? (
           <form className="border-[1px] border-slate-600 rounded-md p-2 mt-4">
-            <textarea
-              id=""
-              className="w-full rounded-lg p-4 outline-none"
-              contentEditable="true"
-            >
-              Contact Me
-            </textarea>
+            <TextEditor data={value2} />
             <div className="mt-2">
               <Button id="SAVE_BUTTON" className="" title="SAVE" />
               <Button id="CANCEL_BUTTON" className="" title="CANCEL" />
@@ -89,13 +160,7 @@ const Admin = () => {
           </form>
         ) : (
           <form className="border-[1px] border-slate-600 rounded-md p-2 mt-4">
-            <textarea
-              id=""
-              className="w-full rounded-lg p-4 outline-none"
-              contentEditable="true"
-            >
-              Author Note
-            </textarea>
+            <TextEditor data={value} />
             <div className="mt-2">
               <Button id="SAVE_BUTTON" className="" title="SAVE" />
               <Button id="CANCEL_BUTTON" className="" title="CANCEL" />
